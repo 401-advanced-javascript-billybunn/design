@@ -1,0 +1,85 @@
+@mixin borderRadius($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin header {
+  padding: 1em;
+}
+
+@mixin main {
+  padding: .75em;
+  > * {
+    margin: .3em;
+  }
+}
+
+@mixin footer {
+  padding: .5em;
+}
+
+@mixin fixed-header($height) {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  + * {
+    color: red;
+    // height: 500px;
+    margin-top: $height;
+  }
+}
+
+// Form mixins
+
+// Box Sizing
+// Source: https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+// Center-align Block Level Element
+// Source: https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Consider mixins for media queries
+// e.g., @mixin desktop { @media (min-width: 960px) {} }
+// Source: https://responsivedesign.is/articles/helpful-sass-mixins/
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) { @content ; }
+ }
+  @else if $point == laptop {
+    @media (min-width: 64em) { @content ; }
+ }
+   @else if $point == tablet {
+    @media (min-width: 50em) { @content ; }
+ }
+  @else if $point == phablet {
+    @media (min-width: 37.5em)  { @content ; }
+ }
+ @else if $point == mobileonly {
+    @media (max-width: 37.5em)  { @content ; }
+
+ }
+}
+
+// Fonts
+// Source: https://engageinteractive.co.uk/blog/top-10-scss-mixins
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false) {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  @if $size { font-size: $size; }
+  @if $colour { color: $colour; }
+  @if $weight { font-weight: $weight; }
+  @if $lh { line-height: $lh; }
+}
+
+// Bordering
+
+// Shading

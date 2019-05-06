@@ -1,68 +1,45 @@
+@import 'reset';
+@import 'includes';
+@import 'core';
 
-$wine: #4B2E39;
-$plum: #4B2E39;
-$lavender: #6C596E;
-$grey: #6F7D8C;
-$light-grey: #D7DBDF;
-$blue: #77A0A9;
-
-$header-height: 100px;
-
-html {
-  height: 100%;
-}
+// Apply some basic styling to main
+// Pin the footer to the bottom
+// Keep the header fixed to the top, scrolling long content underneath
 body {
-  height: 100%;
-}
+  background: $background;
+  color: $color;
+  margin: 0;
+  padding: 0;
+  > #root {
+    > header {
+      @include header;
+      @include fixed-header(150px);
+      background: lightblue;
+      border-bottom: 1px solid $color;
+      height: 150px;
 
-#root {
-  background-color: $light-grey;
-  // color: #000;
-  font-family: sans-serif;
+    }
 
+    > main {
+      @include main;
+      @include borderRadius(20px);
+      background: lightgray;
+      // margin: .25em;
+      // margin-top: 150px;
+    }
 
+    > footer  {
+      @include footer;
+      background: lightcoral;
+      border-top: 1px solid $color;
+      color: darkcyan;
+      text-align: center;
+      width: 100%;
 
-  > header {
-    background-color: $grey;
-    color: #fff;
-    height: $header-height;
-    margin-bottom: 10px;
-    position: fixed;
-    width: 100%;
-    > nav {
-      // display: inline;
-      > ul {
-        display: flex;
-        justify-content: space-around;
-        > li {
-          // display: inline;
-          > a {
-            &:hover {
-              color: $blue;
-            }
-          }
-        }
+      > * {
+        @include center-block;
       }
+
     }
-  }
-
-  > main {
-    display: flex;
-    flex-flow: column;
-    
-    letter-spacing: -0.025rem;
-    line-height: 1.2;
-    padding-top: $header-height;
-
-    > * {
-      margin: 5px;
-    }
-  }
-
-  > footer {
-    background-color: $plum;
-    color: #fff;
-    margin-top: 10px;
-    padding: 10px;
   }
 }

@@ -1,0 +1,20 @@
+@import 'mixins';
+
+// Set the html and body to 100% height and width
+// Note that #root (not body) is the page wrapper
+
+html {
+  height: 100%;
+  width: 100%;
+  body {
+    @include font-source-sans(1.1em);
+    height: 100%;
+    width: 100%;
+  }
+}
+
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}

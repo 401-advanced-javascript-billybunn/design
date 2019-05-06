@@ -3,7 +3,6 @@ import Header from "./components/header/header.js";
 import Footer from "./components/footer/footer.js";
 import Content from "./components/content/content.js";
 
-import "./design/reset.scss";
 import "./design/design.scss";
 
 const App = () => {
